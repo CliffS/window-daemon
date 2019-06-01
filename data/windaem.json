@@ -50,7 +50,7 @@
                 "height": 585
             },
             "machine": "N/A",
-            "title": "Telegram (7442)"
+            "title": "Telegram (7452)"
         },
         "35651600": {
             "id": 35651600,
@@ -76,7 +76,7 @@
                 "height": 1164
             },
             "machine": "spectre",
-            "title": "File System | Node.js v12.3.1 Documentation - Mozilla Firefox"
+            "title": "node-json-db - npm - Mozilla Firefox"
         },
         "50331649": {
             "id": 50331649,
@@ -169,19 +169,6 @@
             "machine": "spectre",
             "title": "cliff@spectre: ~/src/git/window-daemon/src"
         },
-        "75497506": {
-            "id": 75497506,
-            "desktop": 0,
-            "pid": 8707,
-            "position": {
-                "x": 2322,
-                "y": 241,
-                "width": 499,
-                "height": 316
-            },
-            "machine": "spectre",
-            "title": "cliff@spectre: ~/src/git/window-daemon/src"
-        },
         "77594658": {
             "id": 77594658,
             "desktop": 2,
@@ -207,71 +194,6 @@
             },
             "machine": "spectre",
             "title": "windaem.json (~/src/git/window-daemon/data) - GVIM4"
-        },
-        "79701032": {
-            "id": 79701032,
-            "desktop": 0,
-            "pid": 12490,
-            "position": {
-                "x": 8770,
-                "y": 2796,
-                "width": 705,
-                "height": 173
-            },
-            "machine": "spectre",
-            "title": "Warning"
-        },
-        "79702265": {
-            "id": 79702265,
-            "desktop": 1,
-            "pid": 12490,
-            "position": {
-                "x": 8450,
-                "y": 1634,
-                "width": 705,
-                "height": 173
-            },
-            "machine": "spectre",
-            "title": "Warning"
-        },
-        "79703359": {
-            "id": 79703359,
-            "desktop": 0,
-            "pid": 12490,
-            "position": {
-                "x": 8450,
-                "y": 1634,
-                "width": 705,
-                "height": 173
-            },
-            "machine": "spectre",
-            "title": "Warning"
-        },
-        "79705526": {
-            "id": 79705526,
-            "desktop": 0,
-            "pid": 12490,
-            "position": {
-                "x": 8450,
-                "y": 1634,
-                "width": 705,
-                "height": 173
-            },
-            "machine": "spectre",
-            "title": "Warning"
-        },
-        "79708442": {
-            "id": 79708442,
-            "desktop": 0,
-            "pid": 12490,
-            "position": {
-                "x": 8862,
-                "y": 1932,
-                "width": 705,
-                "height": 173
-            },
-            "machine": "spectre",
-            "title": "Warning"
         },
         "81788935": {
             "id": 81788935,
@@ -311,32 +233,6 @@
             },
             "machine": "spectre",
             "title": "windaem.js (~/src/git/window-daemon/lib) - GVIM7"
-        },
-        "85983266": {
-            "id": 85983266,
-            "desktop": 0,
-            "pid": 17609,
-            "position": {
-                "x": 2322,
-                "y": 594,
-                "width": 499,
-                "height": 316
-            },
-            "machine": "spectre",
-            "title": "cliff@spectre: ~/src/git/window-daemon/src"
-        },
-        "85983589": {
-            "id": 85983589,
-            "desktop": 0,
-            "pid": 21167,
-            "position": {
-                "x": 4810,
-                "y": 1920,
-                "width": 687,
-                "height": 173
-            },
-            "machine": "spectre",
-            "title": "Warning"
         }
     }
 }

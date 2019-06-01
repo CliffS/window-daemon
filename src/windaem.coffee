@@ -37,6 +37,7 @@ saveCurrent = ->
   wm = new WMctrl
   wm.currentWindows()
   .then (windows) =>
+    DB.push "/windows", {}
     DB.push "/windows/#{window.id}", window for window in windows
     windows
 
@@ -54,6 +55,13 @@ checkCurrent = (windows) ->
       created.push window
     finally
       DB.push "/windows/#{window.id}", window
+  onDB = Object.keys(DB.getData "/windows").length
+  if onDB > windows.length
+    for item of DB.getData "/windows"
+      do (item) =>
+        DB.delete "/windows/#{item}" unless windows.some (element) =>
+          element.id.toString() is item
+  console.log onDB, Object.keys(DB.getData "/windows").length
   changed: changed
   created: created
 
