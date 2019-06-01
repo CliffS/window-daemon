@@ -1,0 +1,28 @@
+{
+  "name": "window-daemon",
+  "version": "0.1.0",
+  "description": "A daemon to watch for windows opening and to set them up.",
+  "main": "lib/windaem.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "coffee src/windaem.coffee",
+    "build": "coffee --compile --output lib src",
+    "watch": "coffee --watch --compile --output lib src &"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CliffS/window-daemon.git"
+  },
+  "author": "Cliff Stanford <cliff@may.be>",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/CliffS/window-daemon/issues"
+  },
+  "homepage": "https://github.com/CliffS/window-daemon#readme",
+  "devDependencies": {
+    "coffeescript": "^2.4.1"
+  },
+  "dependencies": {
+    "node-json-db": "^0.11.0"
+  }
+}

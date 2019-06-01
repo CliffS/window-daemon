@@ -1,0 +1,15 @@
+{
+    "positions": [
+        {
+            "title": "Mozilla Firefox",
+            "first": true,
+            "desktop": 0,
+            "position": {
+                "x": 1930,
+                "y": 1126,
+                "width": 1390,
+                "height": 1164
+            }
+        }
+    ]
+}
