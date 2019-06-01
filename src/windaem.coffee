@@ -9,25 +9,34 @@ fs     = require 'fs'
 
 #CONFIG = Path.resolve os.homedir(), '.config/windaem.json'
 CONFIGFILE  = Path.resolve __dirname,  '../data/config.json'
-CONFIG      = require CONFIGFILE
+CONFIG      = null
 CURRENT     = Path.resolve __dirname, '../data/windaem.json'
 DB = new JSONdb CURRENT, true, true
 
+loadConfig = ->
+  Promise.resolve()
+  .then =>
+    fs.readFile CONFIGFILE, 'utf8', (err, data) =>
+      try
+        config = JSON.parse data
+      catch err
+        console.error "Reloading config file:"
+        console.error err.message
+        process.exit 1
+      CONFIG = config
+
 watchConfig = ->
-  working = false
-  fs.watch CONFIGFILE, (type, filename) =>
-    unless working
-      working = true
-      setTimeout ->
-        fs.readFile CONFIGFILE, 'utf8', (err, data) =>
-          try
-            CONFIG = JSON.parse data
-          catch err
-            console.error "Reloading config file:"
-            console.error err.message
-            process.exit 1
-          working = false
-      , 1000
+  loadConfig()
+  .then =>
+    working = false
+    fs.watch CONFIGFILE, (type, filename) =>
+      unless working
+        working = true
+        setTimeout ->
+          loadConfig()
+          .then =>
+            working = false
+        , 1000
 
 getCurrent = ->
   wm = new WMctrl
@@ -61,9 +70,30 @@ checkCurrent = (windows) ->
       do (item) =>
         DB.delete "/windows/#{item}" unless windows.some (element) =>
           element.id.toString() is item
-  console.log onDB, Object.keys(DB.getData "/windows").length
   changed: changed
   created: created
+
+fixWindow = (window) ->
+  positions = CONFIG.positions
+  search = window.title.toLowerCase()
+  match = positions.find (item) =>
+    title = item.title.toLowerCase()
+    return false unless search.includes title
+    return true
+    if item.exact then window.title is item.title
+  if match
+    if match.first
+      all = Object.values DB.getData "/windows"
+      exact = match.exact
+      search = if exact then window.title else window.title.toLowerCase()
+      dupe = all.some (element) =>
+        if exact
+          element.title is search
+        else
+          title.toLowerCase().includes search
+    unless dupe
+      wm = new WMctrl
+      wm.moveWindow window.id, match.desktop, match.position
 
 main = ->
   watchConfig()
@@ -74,7 +104,8 @@ main = ->
       .then (windows) =>
         checkCurrent windows
       .then (result) =>
-        console.log result if result.changed.length or result.created.length
+        for window in result.created
+          fixWindow window
       .catch (err) =>
         console.error err
         process.exit 1
